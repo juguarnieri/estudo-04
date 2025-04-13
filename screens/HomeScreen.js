@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -26,9 +27,13 @@ export default function HomeScreen() {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.address}>R. Antônio Lando, 266</Text>
-        <Icon name="notifications-outline" size={24} />
-      </View>
+  <Image
+    source={{ uri: 'https://gru.ifsp.edu.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image04_grd.png' }} // substitua com a URL da imagem do usuário
+    style={styles.avatar}
+  />
+  <Text style={styles.address}>R. Antônio Lando, 266</Text>
+  <Icon name="notifications-outline" size={24} style={styles.icon} />
+</View>
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         {/* Categorias principais */}
@@ -175,12 +180,23 @@ const styles = StyleSheet.create({
     paddingTop: 50,
   },
   header: {
-    paddingHorizontal: 16,
-    paddingBottom: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between', // mantém o ícone no final
+    padding: 16,
+  },
+  avatar: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    marginRight: 8,
   },
   address: {
+    flex: 1, // faz o texto ocupar o espaço entre a imagem e o ícone
     fontSize: 16,
-    fontWeight: 'bold',
+  },
+  icon: {
+    marginLeft: 8,
   },
   content: {
     marginTop: 10,
